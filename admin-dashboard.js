@@ -1,9 +1,10 @@
 let imgUrlConst;
 const categoryDropdown = document.getElementById("cat_id");
 let oldSizeLength = 0;
+let dynamicUrl = "https://demo-hp.herokuapp.com/";
 
 function getCategories() {
-    axios.get('http://localhost:9191/category/get')
+    axios.get(dynamicUrl + '/category/get')
         .then(response => {
             let rac = response.data.data;
             console.log(rac);
@@ -33,7 +34,7 @@ function getSizes() {
     }
     let catId = document.getElementById("cat_id").value;
     // alert(catId);
-    axios.get(` http://localhost:9191/v1/size/get/${catId}`).
+    axios.get(dynamicUrl + `v1/size/get/${catId}`).
     then(response => {
         let rac = response.data.data;
         oldSizeLength = rac.length;
@@ -95,7 +96,7 @@ function postItem() {
         "itemPrice": itemPrice,
         "userId": 1
     }
-    axios.post('http://localhost:9191/item/add', imageData).then(
+    axios.post(dynamicUrl + '/item/add', imageData).then(
         response => {
             alert("Addition succesful");
             console.log(response);
@@ -116,7 +117,7 @@ sectionDiv.appendChild(productContainer);
 showImages();
 
 function showImages() {
-    axios.get('http://localhost:9191/item/get/0'
+    axios.get(dynamicUrl + '/item/get/0'
             // ,{ headers: { authorization: jwtToken }}
         )
         .then(function(response) {
