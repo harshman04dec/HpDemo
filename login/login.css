@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&display=swap');
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  text-align: left;
+  font: normal normal normal 15px Heebo;
+  letter-spacing: 0px;
+  color: #A0A0A5;
+  opacity: 1;
+}
+h1{
+
+  margin-top: 7px;
+  text-align: left;
+  font: normal normal normal 14px Heebo !important;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+input[type=text], input[type = password]{
+  width: 441px;
+  height: 44px;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border-width: 0.5px;
+}
+.hp-header {
+    margin-top: 43px;
+    margin-left: 52px;
+    width: 100px;
+    height: 24px;
+    opacity: 1;
+      
+  } 
+  .app-container{
+    margin-top: 92px;
+   padding-top: 10px;
+   padding-left: 52px;
+   padding-right: 52px;
+    width: 545px;
+    height: 451px;
+    /* UI Properties */
+    background: #FFFFFF;
+    border-radius: 20px;
+    opacity: 1;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #form-login{
+    background: #FFFFFF;
+border-radius: 20px;
+opacity: 1;
+  }
+
+  #login-title {
+    margin-right: auto;
+    margin-bottom: 20px;
+   top: 214px;
+   left: 463px;
+    width: 89px;
+    height: 47px;
+    text-align: left;
+    font: normal normal bold 32px Heebo;
+    letter-spacing: 0px;
+    color: #0A558B;
+    opacity: 1;
+}
+  .remember-checkbox{
+
+    font: normal normal normal 14px Heebo;
+    letter-spacing: 0px;
+    color: #8A8D93;
+    text-shadow: 0px 2px 10px #00000014;
+    opacity: 1;
+    float: right;
+    }
+  .Label{
+position: relative;
+margin-top: 20px;
+width: 107px;
+height: 22px;
+font: normal normal bold 15px Heebo;
+letter-spacing: 0px;
+color: #3D3E40;
+opacity: 1;
+outline: none;
+}
+
+#sign-in-username{
+  width: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/icons/userCircle.svg");
+  margin-top: 10px;
+  position:initial;
+  padding-left: 40px;
+  background-size: 14px;
+  background-position-y:center;
+  background-position-x: 0.8rem;
+  padding-top: 15px;
+  margin-bottom: 29px;
+
+}
+
+#sign-in-password{
+   width: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/icons/password.svg");
+
+  position:initial;
+  padding-left: 40px;
+  background-size: 14px;
+  background-position-y:center;
+  background-position-x: 0.8rem;
+  padding-top: 11px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.copyright{
+  margin-top: 41px;
+
+  
+    /* UI Properties */
+    text-align: center;
+    font: normal normal normal 14px Heebo;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+.button-login{
+  font: normal normal normal 15px/22px Heebo;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+
+  border: none;
+margin-top: 23px;
+  width: 441px;
+  height: 48px;
+  /* UI Properties */
+  background: #FF9857 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  opacity: 1;
+}
+.form-control {
+  padding-top: 1px;
+  font: normal normal normal 14px Heebo;
+  letter-spacing: 0.5px;
+  color: #8A8D93;
+  opacity: 1;
+  float: right;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 1em;
+}
+
+.form-control + .form-control {
+  margin-top: 1em;
+}
+
+.form-control--disabled {
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
+}
+
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #A2A5A8;
+  border-radius: 4px;
+  opacity: 1;
+  font: inherit;
+  color: currentColor;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
+
+input[type="checkbox"]:disabled {
+  --form-control-color: var(--form-control-disabled);
+
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
+}
+.modal {
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+font: normal normal normal 14px Heebo;
+letter-spacing: 0.11px;
+color: #FFFFFF;
+opacity: 1;
+  top: 39px;
+  left: 514px;
+  width: 500px;
+  /* margin-left: 414px; */
+  margin-top: 39px;
+  height: 58px;
+  background: #f44336 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 8px #0000001A;
+  opacity: 1;
+}
+.CrossLogIn{
+  margin-top: 10px;
+  margin-left: 12px;
+  border-radius: 50%;
+  width: 28px;
+height: 28px;
+/* UI Properties */
+background: #FFFFFF 0% 0% no-repeat padding-box;
+opacity: 1;
+}
+.close-button {
+  margin-top: 15px;
+  margin-right: 15px;
+  float: right;
+
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.close-button:hover {
+  background-color: darkgray;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+modalContent{
+  position: relative;
+  margin-top: 4px;
+  text-align: left;
+  font: normal normal medium 14px/67px Heebo;
+  letter-spacing: 0.11px;
+  color: #FFFFFF;
+  opacity: 1;
+}

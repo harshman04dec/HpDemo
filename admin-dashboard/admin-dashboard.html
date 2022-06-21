@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <section class="product-list" id="product-list">
+        <div>
+            <h1 class="align-center">
+                Products
+            </h1>
+        </div>
+
+        <div class="searchbar">
+            <input class="search-input" placeholder="Search">
+            <span class="search-icon"></span>
+        </div>
+
+
+
+
+    </section>
+    <div class="app-container-modal show-modal-edit" style="background:rgba(0, 0, 0, 0.55)  0% 0% no-repeat padding-box;
+    opacity: 0.55;">
+        <div class="modal-content-edit">
+
+            <div style="   border-radius: 10px;" class="modal-title">Add new item</div>
+            <div class=" confirmation">
+            </div>
+            <div style="margin: auto;">
+                <p>item name</p>
+                <input type="text" name="" id="item_name">
+                <p>item desc</p>
+                <input type="text" id="item_desc">
+                <p>price</p>
+                <input type="number" name="" id="item_price">
+                <p>user id</p>
+                <input type="number" id="user_id">
+                <p>category</p>
+                <select name="" id="cat_id">
+                </select>
+                <br>
+                <p> Size</p>
+
+                <select name="" id="size_id">
+        </select>
+                <p>image</p>
+                <input type="file" name="" id="input_img" style="margin-bottom: 20px;" multiple>
+                <button onclick="getImage()"> Upload</button>
+                <br>
+                <input class="button-cancel trigger close-button" type="button" value="submit" onclick="postItem()" />
+            </div>
+
+
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+    </script>
+    <script src="admin-dashboard.js"></script>
+</body>
+
+</html>
