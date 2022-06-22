@@ -3,6 +3,15 @@ body {
     font-family: helvetica, arial, san-serif;
 }
 
+
+/* * {
+    box-sizing: border-box;
+} */
+
+p {
+    margin-bottom: 0px;
+}
+
 .first {
     background-color: #ddeffb;
 }
@@ -319,7 +328,7 @@ nav ul li:hover .sub-menu {
     background: #FFFFFF 0% 0% no-repeat padding-box;
     opacity: 1;
     margin: auto;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     z-index: 2 !important;
     opacity: 1 !important;
@@ -332,11 +341,13 @@ nav ul li:hover .sub-menu {
     border: 1px solid #E3E4E8;
     background-color: #fff;
     border-radius: 10px;
-    width: 580px;
-    height: 630px;
+    width: 35%;
+    margin: auto;
+    margin-top: 5%;
+    /* height: 630px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -70%); */
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -351,7 +362,7 @@ nav ul li:hover .sub-menu {
 }
 
 .close-button {
-    width: 300px;
+    width: 70%;
     line-height: 1.5rem;
     text-align: center;
     cursor: pointer;
@@ -364,7 +375,7 @@ nav ul li:hover .sub-menu {
 }
 
 .modal-title {
-    margin: auto;
+    /* margin: auto; */
     top: 214px;
     left: 463px;
     height: 47px;
@@ -376,7 +387,7 @@ nav ul li:hover .sub-menu {
 }
 
 input {
-    width: 300px;
+    width: 70%;
 }
 
 .dropdown-check-list {
@@ -438,4 +449,24 @@ input[type=checkbox] {
 
 li.category-list {
     margin-bottom: 5px;
+}
+
+li.size-list {
+    margin-bottom: 5px;
+}
+
+.dropdown-check-list ul.sizes {
+    padding: 2px;
+    display: none;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.dropdown-check-list ul.sizes li {
+    list-style: none;
+}
+
+.dropdown-check-list.visible .sizes {
+    display: block;
 }

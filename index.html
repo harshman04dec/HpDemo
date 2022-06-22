@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="admin-dashboard.css">
     <title>Document</title>
@@ -33,10 +35,11 @@
     opacity: 0.55;">
         <div class="modal-content-edit">
 
-            <div style="   border-radius: 10px;" class="modal-title">Add new item</div>
             <div class=" confirmation">
             </div>
-            <div style="margin: auto;">
+            <div style="margin: auto; margin-left: 100px; padding: 5px">
+                <div style="border-radius: 10px;" class="modal-title">Add new item</div>
+
                 <p>item name</p>
                 <input type="text" name="" id="item_name">
                 <p>item desc</p>
@@ -49,14 +52,23 @@
                 <select name="" id="cat_id"> -->
                 </select>
                 <br>
-                <p> Size</p>
-
-                <select name="" id="size_id">
-        </select>
-                <br>
+                <!-- <select name="" id="size_id">
+        </select> -->
                 <div id="categoryList" class="dropdown-check-list" tabindex="100">
-                    <span class="anchor">Select Fruits</span>
+                    <span class="anchor">Select Category</span>
                     <ul class="categories" id="categories">
+                        <!-- <li><input type="checkbox" />Apple </li>
+                        <li><input type="checkbox" />Orange</li>
+                        <li><input type="checkbox" />Grapes </li>
+                        <li><input type="checkbox" />Berry </li>
+                        <li><input type="checkbox" />Mango </li>
+                        <li><input type="checkbox" />Banana </li>
+                        <li><input type="checkbox" />Tomato</li> -->
+                    </ul>
+                </div>
+                <div id="sizeList" class="dropdown-check-list" tabindex="100">
+                    <span class="anchor">Select Sizes</span>
+                    <ul class="sizes" id="size_id">
                         <!-- <li><input type="checkbox" />Apple </li>
                         <li><input type="checkbox" />Orange</li>
                         <li><input type="checkbox" />Grapes </li>
@@ -77,6 +89,9 @@
 
         </div>
     </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
     </script>
     <script src="admin-dashboard.js"></script>

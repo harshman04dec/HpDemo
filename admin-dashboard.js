@@ -3,6 +3,8 @@ const categoryDropdown = document.getElementById("categories");
 let oldSizeLength = 0;
 let dynamicUrl = "https://demo-hp.herokuapp.com/";
 var listIds = [];
+var sizeIdList = [];
+var catIdList = [];
 
 function getCategories() {
     axios.get(dynamicUrl + 'category/get')
@@ -17,6 +19,7 @@ function getCategories() {
                 checkbox.classList.add("category-checkbox")
                 checkbox.id = element.id + "checkbox"
                 checkbox.onchange = function() { checkboxOnChange(element.id); };
+                console.log(catIdList);
                 checkbox.value = element.id;
                 checkbox.type = "checkbox";
                 list.value = element.id;
@@ -60,15 +63,48 @@ function getSizes() {
         oldSizeLength = rac.length;
         console.log(rac);
         rac.forEach(element => {
-            const option = document.createElement("option");
+
+
+
+
+
+
+
+
+
+            const list = document.createElement("li");
+            list.classList.add("size-list");
             const checkbox = document.createElement("input");
+            checkbox.classList.add("size-checkbox")
+            checkbox.id = element.id + "size"
+            checkbox.onchange = function() { checkboxOnChangeSize(element.id); };
+            checkbox.value = element.id;
             checkbox.type = "checkbox";
-            checkbox.name = "name";
-            checkbox.value = "value";
-            option.value = element.id;
-            option.innerText = element.name;
-            option.appendChild(checkbox);
-            sizeDropdown.appendChild(option);
+            list.value = element.id;
+            list.innerText = element.name;
+            list.backgroundImage = `url(${element.imageUrl})`;
+            list.append(checkbox)
+            console.log(element.name);
+            sizeDropdown.appendChild(list);
+
+
+
+
+
+
+
+
+
+
+            // const option = document.createElement("option");
+            // const checkbox = document.createElement("input");
+            // checkbox.type = "checkbox";
+            // checkbox.name = "name";
+            // checkbox.value = "value";
+            // option.value = element.id;
+            // option.innerText = element.name;
+            // option.appendChild(checkbox);
+            // sizeDropdown.appendChild(option);
         })
 
     })
@@ -110,18 +146,21 @@ function getImage() {
 
 function postItem() {
     let itemName = document.querySelector("#item_name").value;
-    let categoryId = document.querySelector("#cat_id").value;
+    // let categoryId = document.querySelector("#cat_id").value;
     let itemDesc = document.querySelector("#item_desc").value;
     let itemPrice = document.querySelector("#item_price").value;
     let imageData = {
-        "categoryId": categoryId,
-        "imgUrl": imgUrls,
-        "itemDescription": itemDesc,
-        "itemName": itemName,
-        "itemPrice": itemPrice,
-        "userId": 1
-    }
-    axios.post(dynamicUrl + '/item/add', imageData).then(
+            "categoryId": catIdList,
+            "imgUrl": imgUrls,
+            "itemDescription": itemDesc,
+            "itemName": itemName,
+            "itemPrice": itemPrice,
+            "sizeIds": sizeIdList,
+            "userId": 1
+        }
+        // axios.post(dynamicUrl + '/item/add', imageData).then(
+    axios.post('http://localhost:9191/item/add', imageData).then(
+
         response => {
             alert("Addition succesful");
             console.log(response);
@@ -183,21 +222,6 @@ function showImages() {
 
         )
 }
-// document.getElementsByClassName("category_checkbox").addEventListener('change', function() {
-//     // alert("something")
-//     getSizes();
-// });
-// var checkbox = document.querySelector(".category_checkbox");
-
-// checkbox.addEventListener('change', function() {
-//     if (this.checked) {
-//         getSizes();
-//         console.log("Checkbox is checked..");
-//     } else {
-//         console.log("Checkbox is not checked..");
-//     }
-// });
-
 
 var checkList = document.getElementById('categoryList');
 checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
@@ -206,16 +230,47 @@ checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
     else
         checkList.classList.add('visible');
 }
+var sizeList = document.getElementById('sizeList');
+sizeList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+    if (sizeList.classList.contains('visible'))
+        sizeList.classList.remove('visible');
+    else
+        sizeList.classList.add('visible');
+}
 
 function checkboxOnChange(id) {
     if (!(document.getElementById(`${id}checkbox`).checked)) {
         listIds = listIds.replace(`&catId=${id}`, "");
+        let index = catIdList.indexOf(id);
+        catIdList.splice(index, 1);
+        console.log("catIdList" + catIdList);
     } else {
+        catIdList.push(id);
+        console.log("catIdList" + catIdList);
+
         if (listIds.length = 0) {
             listIds += `catId=${id}`
         } else
             listIds += `&catId=${id}`
     }
     getSizes();
+    //size
+}
+
+function checkboxOnChangeSize(id) {
+    if (!(document.getElementById(`${id}size`).checked)) {
+        let index = sizeIdList.indexOf(id);
+        sizeIdList.splice(index, 1);
+        console.log("sizeIdList" + sizeIdList);
+    } else {
+        sizeIdList.push(id);
+        console.log("sizeIdList" + sizeIdList);
+
+        // if (listIds.length = 0) {
+        //     listIds += `catId=${id}`
+        // } else
+        //     listIds += `&catId=${id}`
+    }
+    // getSizes();
     //size
 }
