@@ -1,22 +1,33 @@
 let imgUrlConst;
-const categoryDropdown = document.getElementById("cat_id");
+const categoryDropdown = document.getElementById("categories");
 let oldSizeLength = 0;
 let dynamicUrl = "https://demo-hp.herokuapp.com/";
+var listIds = [];
 
 function getCategories() {
-    axios.get(dynamicUrl + '/category/get')
+    axios.get(dynamicUrl + 'category/get')
         .then(response => {
             let rac = response.data.data;
-            console.log(rac);
+            console.log(response);
+            console.log("this is my category data " + rac[0].categoryName);
             rac.forEach(element => {
-                const option = document.createElement("option");
-                option.value = element.id;
-                option.innerText = element.categoryName;
-                option.backgroundImage = `url(${element.imageUrl})`;
+                const list = document.createElement("li");
+                list.classList.add("category-list");
+                const checkbox = document.createElement("input");
+                checkbox.classList.add("category-checkbox")
+                checkbox.id = element.id + "checkbox"
+                checkbox.onchange = function() { checkboxOnChange(element.id); };
+                checkbox.value = element.id;
+                checkbox.type = "checkbox";
+                list.value = element.id;
+                list.innerText = element.categoryName;
+                list.backgroundImage = `url(${element.imageUrl})`;
+                list.append(checkbox)
                 console.log(element.categoryName);
-                categoryDropdown.appendChild(option);
+                categoryDropdown.appendChild(list);
             })
         })
+
 
 }
 const sizeDropdown = document.getElementById("size_id")
@@ -32,17 +43,31 @@ function getSizes() {
         }
         oldSizeLength = 0;
     }
-    let catId = document.getElementById("cat_id").value;
+    var stringCatId
+    var listCatId = [];
+    // var markedCheckbox = document.querySelectorAll('.category-checkbox:checked');
+    // for (var checkbox of markedCheckbox) {
+    //     console.log(checkbox.value + ' ')
+    //     listCatId.push(checkbox.value);
+    //     stringCatId += `&catId=${checkbox.value}`
+    // }
+    console.log("this is my list of category id's :" + listCatId);
+    // let catId = document.getElementById("cat_id").value;
     // alert(catId);
-    axios.get(dynamicUrl + `v1/size/get/${catId}`).
+    axios.get(dynamicUrl + `v1/size/get?` + listIds).
     then(response => {
         let rac = response.data.data;
         oldSizeLength = rac.length;
         console.log(rac);
         rac.forEach(element => {
             const option = document.createElement("option");
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.name = "name";
+            checkbox.value = "value";
             option.value = element.id;
             option.innerText = element.name;
+            option.appendChild(checkbox);
             sizeDropdown.appendChild(option);
         })
 
@@ -117,7 +142,7 @@ sectionDiv.appendChild(productContainer);
 showImages();
 
 function showImages() {
-    axios.get(dynamicUrl + '/item/get/0'
+    axios.get(dynamicUrl + 'item/get/0'
             // ,{ headers: { authorization: jwtToken }}
         )
         .then(function(response) {
@@ -158,7 +183,38 @@ function showImages() {
 
         )
 }
-document.getElementById("cat_id").addEventListener('change', function() {
-    // alert("something")
+// document.getElementsByClassName("category_checkbox").addEventListener('change', function() {
+//     // alert("something")
+//     getSizes();
+// });
+// var checkbox = document.querySelector(".category_checkbox");
+
+// checkbox.addEventListener('change', function() {
+//     if (this.checked) {
+//         getSizes();
+//         console.log("Checkbox is checked..");
+//     } else {
+//         console.log("Checkbox is not checked..");
+//     }
+// });
+
+
+var checkList = document.getElementById('categoryList');
+checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+    if (checkList.classList.contains('visible'))
+        checkList.classList.remove('visible');
+    else
+        checkList.classList.add('visible');
+}
+
+function checkboxOnChange(id) {
+    if (!(document.getElementById(`${id}checkbox`).checked)) {
+        listIds = listIds.replace(`&catId=${id}`, "");
+    } else {
+        if (listIds.length = 0) {
+            listIds += `catId=${id}`
+        } else
+            listIds += `&catId=${id}`
+    }
     getSizes();
-});
+}
