@@ -217,4 +217,5 @@ function checkboxOnChange(id) {
             listIds += `&catId=${id}`
     }
     getSizes();
+    //size
 }
