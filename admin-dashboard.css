@@ -409,6 +409,12 @@ input {
     }
 }
 
+@media only screen and (max-width: 800px) {
+    .modal-content-edit {
+        width: 65%;
+    }
+}
+
 @media only screen and (max-width: 650px) {
     .product-container {
         display: block;
