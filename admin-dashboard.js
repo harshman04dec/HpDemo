@@ -209,7 +209,7 @@ function showImages() {
                     cardDiv.appendChild(imgDes);
                     const price = document.createElement("div");
                     price.classList.add("price");
-                    price.innerText = element.itemPrice
+                    price.innerText = "₹" + element.itemPrice
                     cardDiv.appendChild(price);
                     const buy = document.createElement("button");
                     buy.classList.add("buy-button");

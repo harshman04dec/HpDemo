@@ -4,7 +4,7 @@
         font-family: helvetica, arial, san-serif;
     }
     
-    ::placeholder {
+     ::placeholder {
         /* Chrome, Firefox, Opera, Safari 10.1+ */
         text-align: left;
         font: normal normal normal 15px Heebo;
@@ -149,9 +149,11 @@
     
     .card .price {
         text-align: right;
+        font-weight: bold;
+        font: normal normal normal 15px Heebo;
+        letter-spacing: 0px;
         margin-right: 2em;
         margin-bottom: 0.5em;
-        font-size: 12px;
     }
     
     .buy-button {
@@ -272,6 +274,17 @@
         padding: 0.3em;
         width: 10%;
         transition: width 0.5s ease-in;
+    }
+    
+    .price {
+        font-weight: bold;
+        font: normal normal normal 15px Heebo;
+        letter-spacing: 0px;
+        /* color: #A0A0A5; */
+    }
+    
+    .price :hover {
+        color: #0094ff;
     }
     
     .search-icon {
