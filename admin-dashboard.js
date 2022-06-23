@@ -150,16 +150,16 @@ function postItem() {
     let itemDesc = document.querySelector("#item_desc").value;
     let itemPrice = document.querySelector("#item_price").value;
     let imageData = {
-            "categoryId": catIdList,
-            "imgUrl": imgUrls,
-            "itemDescription": itemDesc,
-            "itemName": itemName,
-            "itemPrice": itemPrice,
-            "sizeIds": sizeIdList,
-            "userId": 1
-        }
-        // axios.post(dynamicUrl + '/item/add', imageData).then(
-    axios.post('http://localhost:9191/item/add', imageData).then(
+        "categoryId": catIdList,
+        "imgUrl": imgUrls,
+        "itemDescription": itemDesc,
+        "itemName": itemName,
+        "itemPrice": itemPrice,
+        "sizeIds": sizeIdList,
+        "userId": 1
+    }
+    axios.post(dynamicUrl + '/item/add', imageData).then(
+        // axios.post('http://localhost:9191/item/add', imageData).then(
 
         response => {
             alert("Addition succesful");
@@ -200,7 +200,8 @@ function showImages() {
                     imgDiv.classList.add("image");
                     cardDiv.appendChild(imgDiv);
                     const itemImage = document.createElement("img");
-                    itemImage.src = element.imgUrl;
+                    console.log(element.imgUrl);
+                    itemImage.src = element.imgUrl[0];
                     imgDiv.appendChild(itemImage);
                     const imgDes = document.createElement("div");
                     imgDes.classList.add("text");
@@ -273,4 +274,18 @@ function checkboxOnChangeSize(id) {
     }
     // getSizes();
     //size
+}
+const modal = document.getElementsByClassName("app-container-modal")[0];
+modal.addEventListener("click", windowOnClick);
+
+function toggleModal() {
+    modal.classList.toggle("show-modal-edit");
+    modal.classList.add("modal-hidden-edit");
+}
+
+function windowOnClick(event) {
+    // alert("triggered -_-")
+    if (event.target === modal) {
+        toggleModal();
+    }
 }

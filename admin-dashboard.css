@@ -304,6 +304,7 @@ nav ul li:hover .sub-menu {
 }
 
 .modal-hidden-edit {
+    visibility: hidden;
     border: 1px solid #E3E4E8;
     border-radius: 10px;
     display: block;
@@ -397,6 +398,28 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
     border-width: 0.5px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .modal-content-edit {
+        width: 50%;
+    }
+    .product-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .product-container {
+        display: block;
+    }
+    .card {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .modal-content-edit {
+        width: 80%;
+    }
 }
 
 input[type=file] {
