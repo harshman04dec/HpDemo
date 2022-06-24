@@ -280,7 +280,7 @@ modal.addEventListener("click", windowOnClick);
 
 function toggleModal() {
     modal.classList.toggle("show-modal-edit");
-    modal.classList.add("modal-hidden-edit");
+    modal.classList.toggle("modal-hidden-edit");
 }
 
 function windowOnClick(event) {
@@ -288,4 +288,8 @@ function windowOnClick(event) {
     if (event.target === modal) {
         toggleModal();
     }
+}
+
+function addItem() {
+    toggleModal();
 }

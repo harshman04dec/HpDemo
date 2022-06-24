@@ -47,7 +47,7 @@
     
     a:hover {
         color: blue;
-        cursor: crosshair;
+        cursor: pointer;
     }
     
     .column1 {
@@ -295,9 +295,10 @@
         opacity: 0.5;
     }
     
-    .search-input {
+    input.search-input {
+        height: auto;
         width: 90%;
-        margin: 0.5em;
+        margin: 0.4em;
         border: none;
         color: #b4b4b4;
         font-family: 'Poppins';
@@ -466,7 +467,7 @@
     
     .dropdown-check-list .anchor {
         margin-top: 10px;
-        margin-bottom: 10px;
+        /* margin-bottom: 10px; */
         position: relative;
         cursor: pointer;
         display: inline-block;
@@ -564,6 +565,8 @@
         transform: translateY(-0.075em);
         display: grid;
         place-content: center;
+        margin-right: 8px;
+        margin-top: 4px;
     }
     
     input[type="checkbox"]::before {
