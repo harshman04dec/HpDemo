@@ -120,3 +120,13 @@ transform: translate(-50%, -70%); */
     color: #0A558B;
     opacity: 1;
 }
+
+@media only screen and (max-width: 1000px) {
+    .modal-content-edit {
+        width: 80%;
+    }
+    input[type=text],
+    input[type=password] {
+        width: auto;
+    }
+}

@@ -439,6 +439,9 @@
     }
     
     @media only screen and (max-width: 650px) {
+        .searchbar {
+            width: 15%;
+        }
         .product-container {
             display: block;
         }

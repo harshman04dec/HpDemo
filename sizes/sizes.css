@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&display=swap');
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font: normal normal normal 15px Heebo;
+}
+
+.column {
+    width: 10%;
+}
+
+.index-column {
+    width: 5%;
+}
+
+input[type=text],
+input[type=password] {
+    width: 441px;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-width: 0.5px;
+}
+
+p {
+    margin: 5px;
+}
+
+
+/* modal */
+
+.close-button {
+    color: #000000;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    width: 20%;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: rgb(255, 255, 255);
+}
+
+.close-button:hover {
+    background-color: rgb(95, 140, 89);
+}
+
+.modal-title {
+    /* margin: auto; */
+    top: 214px;
+    left: 463px;
+    height: 47px;
+    text-align: left;
+    font: normal normal bold 32px Heebo;
+    letter-spacing: 0px;
+    color: #0A558B;
+    opacity: 1;
+}
+
+.form-style {
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+#category-list {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-right: none;
+}
+
+#size_name {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-right: 20px;
+}
+
+#size_name,
+#category-list {
+    height: 30px !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .modal-content-edit {
+        width: 80%;
+    }
+    input[type=text],
+    input[type=password] {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .close-button {
+        width: 97%;
+    }
+}
